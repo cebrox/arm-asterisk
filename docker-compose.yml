@@ -1,0 +1,21 @@
+version: '3.6'
+services:
+  app:
+    image: cebrox/arm-asterisk:latest
+    volumes:
+      - /srv/docker_volumes/asterisk_data/sounds:/var/lib/asterisk/sounds
+      - /srv/docker_volumes/asterisk_data/keys:/var/lib/asterisk/keys
+      - /srv/docker_volumes/asterisk_data/phoneprov:/var/lib/asterisk/phoneprov
+      - /srv/docker_volumes/asterisk_data/spool:/var/spool/asterisk
+      - /srv/docker_volumes/asterisk_data/log:/var/log/asterisk
+      - /srv/docker_volumes/asterisk_data/config:/etc/asterisk
+      - /etc/timezone:/etc/timezone:ro
+    network_mode: host
+#    ports:
+#      - 5060:5060/udp
+#      - 5060:5060/tcp
+#      - 8088:8088
+#      - 30000-30100:30000-30100/udp
+#      - 30000-30100:30000-30100/tcp
+    privileged: true
+#    command: "/usr/sbin/asterisk -T -U asterisk -fvvvvv"
