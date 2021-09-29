@@ -1,6 +1,6 @@
 FROM debian:bullseye
-RUN apt-get update --allow-unauthenticated && \
-    apt-get install -y --allow-unauthenticated asterisk ntp && \
+RUN apt-get update && \
+    apt-get install -y asterisk ntp && \
     mkdir -p /var/tmp/asterisk-configs && \
     mv /etc/asterisk/* /var/tmp/asterisk-configs
 
